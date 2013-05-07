@@ -17,6 +17,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
+gem 'unicorn'
+
 group :production do
 	gem 'pg'
 end
