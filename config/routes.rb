@@ -1,8 +1,9 @@
 PwnedIt::Application.routes.draw do
-  get "pages/home"
-  get "pages/about"
-  get "pages/help"
-  resources :posts
-  resources :users
-  
+	root :to => "pages#home"
+	get "pages/home"
+	get "pages/about"
+	get "pages/help"
+	resources :posts
+	resources :users
+
 end
