@@ -1,18 +1,15 @@
 require 'spec_helper'
 
 describe "Pages" do
+	let(:base_title) { "I Pwned It" }
 	describe "Home page" do
 		it "should have the content 'Main Page'" do
 			visit '/pages/home'
 			expect(page).to have_content("Main Page")
 		end
-		it "should have the base title" do
+		it "should have the title 'Main Page'" do
 			visit '/pages/home'
-			expect(page).to have_title("I Pwned It")
-		end
-		it "should not have a custom page title" do
-			visit '/pages/home'
-			expect(page).not_to have_title("| Main Page")
+			expect(page).to have_title("#{base_title} | Main Page")
 		end
 	end
 	
@@ -21,13 +18,9 @@ describe "Pages" do
 			visit '/pages/about'
 			expect(page).to have_content("About Us")
 		end
-		it "should have the base title" do
+		it "should have the title ' About Us' do
 			visit '/pages/about'
-			expect(page).to have_title("I Pwned It")
-		end
-		it "should not have a custom page title" do
-			visit '/pages/about'
-			expect(page).not_to have_title("| About Us")
+			expect(page).to have_title("#{base_title} | About Us")
 		end
 	end
 
@@ -36,13 +29,20 @@ describe "Pages" do
 			visit '/pages/help'
 			expect(page).to have_content("Help")
 		end
-		it "should have the base title" do
+		it "should have the title 'Help'" do
 			visit '/pages/help'
-			expect(page).to have_title("I Pwned It")
+			expect(page).to have_title("#{base_title} | Help")
 		end
-		it "should not have a custom page title" do
-			visit '/pages/help'
-			expect(page).not_to have_title("| Help")
-		end		
+	end
+	
+	describe "Contacts page" do
+		it "should have the content 'Contact'" do
+			visit '/pages/contact'
+			expect(page).to have_content("Contact")
+		end
+		it "should have the title 'Contact'" do
+			visit '/pages/contact'
+			expect(page).to have_title("#{base_title} | Contact Us")
+		end
 	end
 end
