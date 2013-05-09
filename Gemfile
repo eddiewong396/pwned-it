@@ -6,11 +6,16 @@ gem 'rails', '4.0.0.beta1'
 group :development do
 	gem 'sqlite3'
 	gem 'rspec-rails'
+	gem 'guard-rspec'
+	gem 'guard-spork'
 end
 
 group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
+	
+	gem 'rb-fsevent'
+	gem 'growl'
 end
 
 group :assets do
