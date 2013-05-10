@@ -1,63 +1,36 @@
 require 'spec_helper'
 
 describe "Pages" do
-	let(:base_title) { "I Pwned It" }
+	
+	subject { page }
 	
 	describe "Home page" do
-		it "should have the content 'Main Page'" do
-			visit '/pages/home'
-			expect(page).to have_content('Main Page')
-		end
-			
-		it "should have the h1 'Main Page'" do
-			visit root_path
-			expect(page).to have_content('Main Page')
-		end
-		it "should have the base title" do
-			visit root_path
-			expect(page).to have_title("#{base_title}")
-		end
-		it "should not have a custom page title" do
-			visit root_path
-			expect(page).not_to have_title(' | Main Page')
-		end		
+		before { visit root_path }
+		
+		it { should have_content('Main Page') }
+		it { should have_title(full_title('')) }
+		it { should_not have_title(' | Main Page') }
 	end
 	
 	describe "About page" do
-		it "should have the content 'About Us'" do
-			visit '/pages/about'
-			expect(page).to have_content('About Us')
-		end
-		it "should have the h1 'About Us'" do
-			visit '/pages/about'
-			expect(page).to have_content('About Us')
-		end
-		it "should have the base title" do
-			visit '/pages/about'
-			expect(page).to have_title("#{base_title}")
-		end
-		it "should not have a custom page title" do
-			visit '/pages/about'
-			expect(page).not_to have_title('#{base_title} | About Us')
-		end
+		before { visit about_path }
+		
+		it { should have_content('About') }
+		it { should have_title(full_title('About Us')) }
 	end
 
 	describe "Help page" do
-		it "should have the content 'Help'" do
-			visit '/pages/help'
-			expect(page).to have_content('Help')
-		end		
-		it "should have the h1 'Help'" do
-			visit '/pages/help'
-			expect(page).to have_content('Help')
-		end
+		before { visit help_path }
+		
+		it { should have_content('Help') }
+		#it { should have_title(full_title('Help')) }
 	end
 	
 	describe "Contacts page" do
-		it "should have the content 'Contact'" do
-			visit '/pages/contact'
-			expect(page).to have_content('Contact')
-		end
+		before { visit contact_path }
+		
+		it { should have_content('Contact') }
+		#it { should have_title(full_title('Contact Us')) }
 	end
 end
 	
