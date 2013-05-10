@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0.beta1'
+gem 'pg'
 gem 'bootstrap-sass'
 
 group :development do
@@ -30,7 +31,3 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 gem 'unicorn'
-
-group :production do
-	gem 'pg'
-end
