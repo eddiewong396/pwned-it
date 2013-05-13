@@ -23,14 +23,27 @@ describe "Pages" do
 		before { visit help_path }
 		
 		it { should have_content('Help') }
-		#it { should have_title(full_title('Help')) }
+		it { should have_title(full_title('Help')) }
 	end
 	
 	describe "Contacts page" do
 		before { visit contact_path }
 		
 		it { should have_content('Contact') }
-		#it { should have_title(full_title('Contact Us')) }
+		it { should have_title(full_title('Contact Us')) }
+	end
+	
+	it "should have the right links on the layout" do
+		visit root_path
+		click_link "About"
+		expect(page).to have_title(full_title('About Us'))
+		click_link "Help"
+		expect(page).to have_title(full_title('Help'))
+		click_link "Contact"
+		expect(page).to have_title(full_title('Contact'))
+		click_link "Main Page"
+		click_link "Sign Up"
+		expect(page).to have_title(full_title('Sign up'))
 	end
 end
 	
