@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0.beta1'
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 
 group :development do
 	gem 'sqlite3'
