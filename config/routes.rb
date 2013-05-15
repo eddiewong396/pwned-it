@@ -1,5 +1,5 @@
 PwnedIt::Application.routes.draw do
-	get 'users/new'
+	#get 'users/new'
 	root to: 'pages#home'
 	
 	resources :posts

@@ -5,6 +5,9 @@ gem 'rails', '4.0.0.beta1'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development do
 	gem 'sqlite3'
@@ -19,6 +22,11 @@ group :test do
 	
 	gem 'rb-fsevent'
 	gem 'growl'
+	gem 'factory_girl_rails'
+	gem 'cucumber-rails'
+	gem 'database_cleaner'
+	gem 'spork'
+	gem 'launchy'
 end
 
 group :assets do

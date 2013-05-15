@@ -8,12 +8,13 @@ describe User do
 	end
 	
 	subject { @user }
-	it { should respond_to(:authenticate) }
+
 	it { should respond_to(:name) }
 	it { should respond_to(:email) }
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
+	it { should respond_to(:authenticate) }
 	it { should be_valid }
 
 	describe "when name is not present" do
@@ -45,7 +46,7 @@ describe User do
 			addresses = %w[user@foo,com user_at_foo.org example.user@foo.foo@bar_baz.com foo@bar+baz.com]
 			addresses.each do |invalid_address|
 				@user.email = invalid_address
-				expect(@user).not_to be_valid
+				@user.should_not be_valid
 			end
 		end
 	end
@@ -55,7 +56,7 @@ describe User do
 			addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
 			addresses.each do |valid_address|
 				@user.email = valid_address
-				expect(@user).to be_valid
+				@user.should be_valid
 			end
 		end
 	end
@@ -91,17 +92,17 @@ describe User do
 	
 	describe "return value of authenticate method" do
 		before { @user.save }
-		let(:found_user) { User.find_by(email: @user.email) }
+		let(:found_user) { User.find_by_email(@user.email) }
 		
 		describe "with valid password" do
-			it { should eql(found_user.authenticate(@user.password)) }
+			it { should == found_user.authenticate(@user.password) }
 		end
 
 		describe "with invalid password" do
 			let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 			
-			it { should_not eql(user_for_invalid_password) }
-			specify { expect(user_for_invalid_password).to be_false }
+			it { should_not == user_for_invalid_password }
+			specify { user_for_invalid_password.should be_false }
 		end
 	end
 end
