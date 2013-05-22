@@ -41,9 +41,9 @@ describe "Pages" do
 		expect(page).to have_title(full_title('Help'))
 		click_link "Contact"
 		expect(page).to have_title(full_title('Contact'))
-		click_link "Main Page"
-		click_link "Sign Up"
-		expect(page).to have_title(full_title('Sign up'))
+		click_link "Home"
+		click_link "Sign In"
+		expect(page).to have_title(full_title('Sign in'))
 	end
 end
 	
