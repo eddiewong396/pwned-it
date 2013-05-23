@@ -42,16 +42,7 @@ describe "Pages" do
 		click_link "Contact"
 		expect(page).to have_title(full_title('Contact'))
 		click_link "Home"
-		click_link "Sign In"
+		click_link "Sign in"
 		expect(page).to have_title(full_title('Sign in'))
 	end
 end
-	
-	
-	
-	
-	
-	
-	
-	
-	
